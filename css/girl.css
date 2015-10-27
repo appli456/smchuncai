@@ -19,9 +19,38 @@
     top: 100px;
     left: 200px;
     display: block;
-    width: 200px;
-    height: 200px;
-    /*bottom: 20px;*/
-    /*right: 15px;*/
+}
+
+#callDoll {
+    position: fixed;
+    z-index: 999;
+    min-height: 1em;
+    bottom: 20px;
+    right: 15px;
+    padding: 0.785714em 1.5em;
+    box-shadow: 0 0 0 2px #1678C2 inset !important;
+    border: medium none;
+    border-radius: 0.285714rem;
+    background: #ffffff none repeat scroll 0 0;
+    cursor: pointer;
+    display: inline-block;
+    outline: 0 none;
+    color: #1678C2;
+    font-weight: 700;
+    font-size: 1rem;
+    font-style: normal;
+    font-family: Microsoft YaHei;
+    line-height: 1em;
+    vertical-align: baseline;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: none !important;
+    text-transform: none;
+    transition: opacity 0.1s ease 0s, background-color 0.1s ease 0s, color 0.1s ease 0s, box-shadow 0.1s ease 0s, background 0.1s ease 0s;
+}
+
+#callDoll:hover {
+    background: #1678C2 none repeat scroll 0 0;
+    color: #ffffff;
 }
 
