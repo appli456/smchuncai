@@ -2,17 +2,68 @@
  * Created by li_rz on 2015/10/27.
  */
 girl.change = (function () {
-    // ----------------------------- ±äÁ¿ÉùÃ÷¼°¶¨Òå -----------------------------
-    var changeImg,
-        initModule;
+    // ----------------------------- å˜é‡å£°æ˜åŠå®šä¹‰ -----------------------------
+    var initModule,
+        resumeTime,
+        pauseTime,
+        img_list = ['002.png', '003.png', '004.png',  '005.png'];
 
-    // ----------------------------- ½áÊø±äÁ¿ÉùÃ÷¼°¶¨Òå --------------------------
+    window.var = {
+        timeChange : null
+    };
 
-    // ---------------------- DOM ·½·¨ -------------------------------
+    // ----------------------------- ç»“æŸå˜é‡å£°æ˜åŠå®šä¹‰ --------------------------
 
-    // ---------------------- ½áÊø DOM ·½·¨ ---------------------------
+    // ---------------------- DOM æ–¹æ³• -------------------------------
 
-    // --------------------- ¹«¹²·½·¨ ----------------------------
 
-    // -------------------- ½áÊø¹«¹²·½·¨ --------------------------
+
+
+    // ---------------------- ç»“æŸ DOM æ–¹æ³• ---------------------------
+
+    // --------------------- å…¬å…±æ–¹æ³• ----------------------------
+
+    initModule = function (doll) {
+        resumeTime(doll);
+    };
+
+    resumeTime = function (doll) {
+        console.log('resume');
+        window.var.timeChange = setTimeout(function () {
+            var doll_img = doll.find('img'),
+                img_src = doll_img.get(0).src,
+            //img_regex = /(\d{3})\.png$/;
+                img_regex,
+                i;
+
+            for (i = 0; i < img_list.length; ++i) {
+                img_regex = new RegExp(img_list[i] + '$', 'g');
+                if (img_regex.test(img_src)) {
+                    if (i === img_list.length - 1) {
+                        img_src = img_src.replace(img_regex, img_list[0]);
+                        break;
+                    } else {
+                        img_src = img_src.replace(img_regex, img_list[i+1]);
+                        break;
+                    }
+                }
+            }
+
+            doll.html('<img src=' + img_src + ' alt="umaru" draggable="false"/>');
+
+            resumeTime(doll);
+        }, 5000);
+    };
+
+
+    pauseTime = function () {
+        console.log('pause');
+        clearTimeout(window.var.timeChange);
+    };
+    // -------------------- ç»“æŸå…¬å…±æ–¹æ³• --------------------------
+    return {
+        initModule: initModule,
+        resumeTime : resumeTime,
+        pauseTime : pauseTime
+    }
 }());

@@ -44,7 +44,9 @@ girl.move = (function () {
                 offset = {
                     x : $this.offsetLeft,
                     y : $this.offsetTop
-                };
+                },
+                resume = true,     // 确认只调用resumeTime一次
+                change = false;    // 改变开始
 
             clickDownPosition.x = event.clientX;
             clickDownPosition.y = event.clientY;
@@ -54,14 +56,21 @@ girl.move = (function () {
                 y : clickDownPosition.y - offset.y
             };
 
+            girl.change.pauseTime();
             doll.on('mousemove', function(event){
-                console.log('offset:',  offset.x, offset.y);
-                console.log('Distance:', distanceFromClickAndOffset.x, distanceFromClickAndOffset.y);
-                console.log('ImgSize:', imgSize.x, imgSize.y);
-                console.log('client:', event.clientX, event.clientY);
+                //console.log('offset:',  offset.x, offset.y);
+                //console.log('Distance:', distanceFromClickAndOffset.x, distanceFromClickAndOffset.y);
+                //console.log('ImgSize:', imgSize.x, imgSize.y);
+                //console.log('client:', event.clientX, event.clientY);
+
                 if(!drag) {
+                    if (change && resume) {
+                        girl.change.resumeTime(doll);
+                        resume = false;
+                    }
                     return false;
                 }
+
                 var enterLeft = event.clientX - distanceFromClickAndOffset.x < 0,
                     enterTop = event.clientY - distanceFromClickAndOffset.y < 0,
                     enterRight = event.clientX > screen.availWidth - imgSize.x + distanceFromClickAndOffset.x,
@@ -92,9 +101,11 @@ girl.move = (function () {
 
             doll.on('mouseup', function() {
                 drag = false;
+                change = true;
             });
 
             doll.on('mouseleave', function () {
+                change = true;
                 drag = false;
             });
         });
