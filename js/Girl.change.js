@@ -49,7 +49,11 @@ girl.change = (function () {
                 }
             }
 
-            doll.html('<img src=' + img_src + ' alt="umaru" draggable="false"/>');
+            doll.html('<div id="Speak">' +
+                        '<div class="speakContain"></div>' +
+                        '<div class="speakFrom"></div>' +
+                       '</div>' +
+                       '<img src=' + img_src + ' alt="umaru" draggable="false"/>');
 
             resumeTime(doll);
         }, 5000);

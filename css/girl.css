@@ -54,3 +54,25 @@
     color: #ffffff;
 }
 
+#Speak {
+    color: #eeeeee;
+}
+
+.speakContain {
+    position: relative;
+    padding: 5px;
+    width: 100px;
+    height: 20px;
+    border: 0;
+    border-radius: 5px 5px 0 5px;
+    background: #1678C2;
+}
+
+.speakFrom {
+    position: relative;
+    float: right;
+    width: 0;
+    height: 0;
+    border-top: 20px solid #1678C2;
+    border-left: 20px solid transparent;
+}
