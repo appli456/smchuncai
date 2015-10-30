@@ -56,7 +56,7 @@ girl.change = (function () {
                        '<img src=' + img_src + ' alt="umaru" draggable="false"/>');
 
             resumeTime(doll);
-        }, 5000);
+        }, 10000);
     };
 
 

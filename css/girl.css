@@ -55,24 +55,33 @@
 }
 
 #Speak {
+    float: left;
+    margin: 30px 0 0 0;
+    width: 200px;
     color: #eeeeee;
 }
 
 .speakContain {
     position: relative;
+    float: left;
     padding: 5px;
-    width: 100px;
-    height: 20px;
+    width: 80%;
+    min-height: 50px;
     border: 0;
-    border-radius: 5px 5px 0 5px;
+    border-radius: 5px;
     background: #1678C2;
 }
 
 .speakFrom {
     position: relative;
-    float: right;
+    float: left;
+    margin: 5px 0 0 0;
     width: 0;
     height: 0;
-    border-top: 20px solid #1678C2;
-    border-left: 20px solid transparent;
+    border-left: 13px solid #1678C2;
+    border-bottom: 13px solid transparent;
+}
+
+#Doll img {
+    float: left;
 }
