@@ -5,8 +5,8 @@ girl.change = (function () {
     // ----------------------------- 变量声明及定义 -----------------------------
     var initModule,
         resumeTime,
-        pauseTime,
-        img_list = ['002.png', '003.png', '004.png',  '005.png'];
+        replayTime,
+        pauseTime;
 
     window.var = {
         timeChange : null
@@ -23,46 +23,43 @@ girl.change = (function () {
 
     // --------------------- 公共方法 ----------------------------
 
-    initModule = function (doll) {
-        resumeTime(doll);
-    };
 
-    resumeTime = function (doll) {
+    resumeTime = function ($container) {
         console.log('resume');
         window.var.timeChange = setTimeout(function () {
-            var doll_img = doll.find('img'),
-                img_src = doll_img.get(0).src,
-            //img_regex = /(\d{3})\.png$/;
-                img_regex,
+            var $container_img = $container.find('img'),
+                next_img,
                 i;
-
-            for (i = 0; i < img_list.length; ++i) {
-                img_regex = new RegExp(img_list[i] + '$', 'g');
-                if (img_regex.test(img_src)) {
-                    if (i === img_list.length - 1) {
-                        img_src = img_src.replace(img_regex, img_list[0]);
-                        break;
-                    } else {
-                        img_src = img_src.replace(img_regex, img_list[i+1]);
-                        break;
-                    }
+            for (i = 0; i < $container_img.length; ++i) {
+                if ($container_img[i].style.display === 'block') {
+                    next_img = $container_img[i + 1];
                 }
             }
 
-            doll.html('<div id="Speak">' +
-                        '<div class="speakContain"></div>' +
-                        '<div class="speakFrom"></div>' +
-                       '</div>' +
-                       '<img src=' + img_src + ' alt="umaru" draggable="false"/>');
+            if (!next_img) {
+                next_img = $container_img[0];
+            }
 
-            resumeTime(doll);
-        }, 10000);
+            $container_img.each(function (index, element) {
+                if (element !== next_img) {
+                    element.style.display = 'none';
+                } else {
+                    element.style.display = 'block';
+                }
+            });
+
+            resumeTime($container);
+        }, 15000);
     };
 
 
     pauseTime = function () {
         console.log('pause');
         clearTimeout(window.var.timeChange);
+    };
+
+    initModule = function ($container) {
+        resumeTime($container);
     };
     // -------------------- 结束公共方法 --------------------------
     return {

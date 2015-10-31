@@ -9,25 +9,43 @@
     <title>看板娘</title>
 </head>
 <body>
-    <div id="smchuncai">
-        <div id="Doll" draggable="true">
-            <div id="Speak">
-                <div class="speakContain"></div>
-                <div class="speakFrom"></div>
+    <div id="smchuncai" draggable="true">
+        <div class="smchuncai-speak">
+            <div class="smchuncai-speak-contain">
+                <div class="smchuncai-speak-contain-menu">
+                    <ul>
+                        <li>博客首页</li>
+                        <li>卖个萌</li>
+                        <li>隐藏小埋</li>
+                    </ul>
+                </div>
+                <div class="smchuncai-speak-contain-said">
+                    <p></p>
+                </div>
+                <div class="smchuncai-speak-contain-show-button">
+                    <p>菜单</p>
+                </div>
             </div>
+            <div class="smchuncai-speak-from"></div>
+        </div>
+        <div class="smchuncai-img-contain">
             <img src="img/002.png" alt="umaru" draggable="false"/>
+            <img src="img/003.png" alt="umaru" draggable="false"/>
+            <img src="img/004.png" alt="umaru" draggable="false"/>
+            <img src="img/005.png" alt="umaru" draggable="false"/>
         </div>
         <div>
-            <button id="callDoll">召唤小埋</button>
+            <button class="smchuncai-call-doll">召唤小埋</button>
         </div>
     </div>
+
     <script src="js/Girl.js"></script>
     <script src="js/Girl.shell.js"></script>
     <script src="js/Girl.move.js"></script>
     <script src="js/Girl.change.js"></script>
     <script>
         $(document).ready(function () {
-            girl.initModule($('#Doll'));
+            girl.initModule($('#smchuncai'));
         })
     </script>
 </body>

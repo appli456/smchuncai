@@ -14,10 +14,10 @@ girl.move = (function () {
 
     // ---------------------- DOM 方法 -------------------------------
 
-    moveDoll = function(doll){
+    moveDoll = function($container){
 
         // 点击时鼠标坐标
-        var img = doll.find('img'),
+        var img = $container.find('img'),
             clickDownPosition = {
                 x : null,
                 y : null
@@ -36,7 +36,7 @@ girl.move = (function () {
         imgSize.y = parseInt(img.css('height'));
 
         console.log(imgSize);
-        doll.on('mousedown',  function(event){
+        $container.on('mousedown',  function(event){
             drag = true;
             var $this = this,
 
@@ -57,7 +57,7 @@ girl.move = (function () {
             };
 
             girl.change.pauseTime();
-            doll.on('mousemove', function(event){
+            $container.on('mousemove', function(event){
                 //console.log('offset:',  offset.x, offset.y);
                 //console.log('Distance:', distanceFromClickAndOffset.x, distanceFromClickAndOffset.y);
                 //console.log('ImgSize:', imgSize.x, imgSize.y);
@@ -65,7 +65,7 @@ girl.move = (function () {
 
                 if(!drag) {
                     if (change && resume) {
-                        girl.change.resumeTime(doll);
+                        girl.change.resumeTime($container);
                         resume = false;
                     }
                     return false;
@@ -99,12 +99,12 @@ girl.move = (function () {
 
             });
 
-            doll.on('mouseup', function() {
+            $container.on('mouseup', function() {
                 drag = false;
                 change = true;
             });
 
-            doll.on('mouseleave', function () {
+            $container.on('mouseleave', function () {
                 change = true;
                 drag = false;
             });
@@ -125,8 +125,8 @@ girl.move = (function () {
     // --------------------- 公共方法 ----------------------------
 
 
-    initModule = function (doll) {
-        doll.on('mouseover', moveDoll(doll));
+    initModule = function ($container) {
+        $container.on('mouseover', moveDoll($container));
     };
     // -------------------- 结束公共方法 --------------------------
 

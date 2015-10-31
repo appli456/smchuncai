@@ -9,6 +9,7 @@ girl.shell = (function () {
         },
         jQueryMap = {},
         setJqueryMap,
+        allImageHide,
         initModule;
 
     window.var = {
@@ -26,6 +27,21 @@ girl.shell = (function () {
         }
     };
 
+    allImageHide = function ($container) {
+        var $container_img = $container.find('img'),
+            img_src = $container_img.get(0).src,
+            begin_regex_img = new RegExp(img_src);
+
+        console.log($container_img);
+        $container_img.each(function (index, element) {
+            var element_get = element.src;
+            if (!begin_regex_img.test(element_get)) {
+                element.style.display = 'none';
+            } else {
+                element.style.display = 'block';
+            }
+        })
+    };
     // ---------------------------- 结束 DOM 方法 ---------------------------------
 
     // ---------------------------- 事件控制 --------------------------------------
@@ -38,6 +54,7 @@ girl.shell = (function () {
     initModule = function ($container) {
         stateMap.$container = $container;
         setJqueryMap();
+        allImageHide(jQueryMap.$container);
         girl.move.initModule(jQueryMap.$container);
         girl.change.initModule(jQueryMap.$container);
     };

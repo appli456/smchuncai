@@ -13,7 +13,7 @@
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
 }
-#Doll {
+#smchuncai {
     position: fixed;
     z-index: 999;
     top: 100px;
@@ -21,7 +21,7 @@
     display: block;
 }
 
-#callDoll {
+#smchuncai .smchuncai-call-doll {
     position: fixed;
     z-index: 999;
     min-height: 1em;
@@ -49,19 +49,20 @@
     transition: opacity 0.1s ease 0s, background-color 0.1s ease 0s, color 0.1s ease 0s, box-shadow 0.1s ease 0s, background 0.1s ease 0s;
 }
 
-#callDoll:hover {
+#smchuncai .smchuncai-call-doll:hover {
     background: #1678C2 none repeat scroll 0 0;
     color: #ffffff;
 }
 
-#Speak {
+#smchuncai .smchuncai-speak {
+    position: relative;
     float: left;
     margin: 30px 0 0 0;
     width: 200px;
-    color: #eeeeee;
+    color: #ffffff;
 }
 
-.speakContain {
+#smchuncai .smchuncai-speak-contain {
     position: relative;
     float: left;
     padding: 5px;
@@ -72,7 +73,7 @@
     background: #1678C2;
 }
 
-.speakFrom {
+#smchuncai .smchuncai-speak-from {
     position: relative;
     float: left;
     margin: 5px 0 0 0;
@@ -82,6 +83,58 @@
     border-bottom: 13px solid transparent;
 }
 
-#Doll img {
+#smchuncai .smchuncai-img-contain img {
     float: left;
+}
+
+#smchuncai .smchuncai-img-contain {
+    float: left;
+}
+
+.smchuncai-speak-contain-menu {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    float: left;
+    font-size: small;
+}
+
+.smchuncai-speak-contain-menu ul {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    float: left;
+    list-style: none;
+}
+
+.smchuncai-speak-contain-menu li {
+    position: relative;
+    padding: 3px;
+    cursor: pointer;
+    float: left;
+    color: #ffffff;
+}
+
+.smchuncai-speak-contain-menu li:hover {
+    color: #eeeeee;
+}
+
+.smchuncai-speak-contain-show-button {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    float: right;
+    text-align: center;
+    font-size: small;
+}
+
+.smchuncai-speak-contain-show-button p {
+    cursor: pointer;
+    padding: 5px;
+    color: white;
+}
+
+.smchuncai-speak-contain-show-button p:hover {
+    background: #ffffff;
+    color: #1678C2;
 }
