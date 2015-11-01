@@ -95,6 +95,7 @@
     position: relative;
     margin: 0;
     padding: 0;
+    width: 100%;
     float: left;
     font-size: small;
 }
@@ -116,14 +117,15 @@
 }
 
 .smchuncai-speak-contain-menu li:hover {
-    color: #eeeeee;
+    color: #adadad;
 }
 
 .smchuncai-speak-contain-show-button {
     position: relative;
-    margin: 0;
-    padding: 0;
+    margin: 0 auto;
+    padding: 0 auto;
     float: right;
+    clear: right;
     text-align: center;
     font-size: small;
 }

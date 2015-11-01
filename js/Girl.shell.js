@@ -10,6 +10,7 @@ girl.shell = (function () {
         jQueryMap = {},
         setJqueryMap,
         allImageHide,
+        initMenu,
         initModule;
 
     window.var = {
@@ -42,6 +43,10 @@ girl.shell = (function () {
             }
         })
     };
+
+    initMenu = function ($container) {
+        
+    };
     // ---------------------------- 结束 DOM 方法 ---------------------------------
 
     // ---------------------------- 事件控制 --------------------------------------
@@ -57,6 +62,7 @@ girl.shell = (function () {
         allImageHide(jQueryMap.$container);
         girl.move.initModule(jQueryMap.$container);
         girl.change.initModule(jQueryMap.$container);
+        girl.word.initModule(jQueryMap.$container);
     };
 
     // -------------------------- 结束公共方法 ------------------------------------

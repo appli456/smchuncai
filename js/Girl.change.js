@@ -49,7 +49,7 @@ girl.change = (function () {
             });
 
             resumeTime($container);
-        }, 15000);
+        }, 20000);
     };
 
 
