@@ -11,6 +11,7 @@ girl.word = (function() {
         clickLink,
         showWord,
         showMenu,
+        hideDoll,
         initModule;
 
     // ---------------------- 结束变量定义与声明 -----------------------------
@@ -28,7 +29,7 @@ girl.word = (function() {
             } else if (event.target === menu_item[1]) {
                 window.location = 'https://github.com/lfkdsk/';
             } else if (event.target === menu_item[menu_item.length - 1]) {
-
+                hideDoll(jQuery_map.$container);
             } else {
                 showWord($menu_element);
             }
@@ -61,6 +62,12 @@ girl.word = (function() {
         menu_said.html('<p>Dive</p>');
     };
 
+    hideDoll = function ($container) {
+        var $container_body = $container.find('.smchuncai-body'),
+            $container_button = $container.find('.smchuncai-call-doll');
+        $container_body.get(0).style.display = 'none';
+        $container_button.get(0).style.display = 'block';
+    };
     // --------------------- 结束事件 ----------------------------
 
     // --------------------- 公共方法 ----------------------------

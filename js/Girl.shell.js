@@ -9,8 +9,10 @@ girl.shell = (function () {
         },
         jQueryMap = {},
         setJqueryMap,
+        initAllItem,
         allImageHide,
         initMenu,
+        hideButton,
         initModule;
 
     window.var = {
@@ -52,6 +54,23 @@ girl.shell = (function () {
         $container_menu_said.get(0).style.display = 'block';
         $container_menu_said.html('<p>小埋参上</p>')
     };
+
+    hideButton = function ($container) {
+        var $container_button = $container.find('.smchuncai-call-doll');
+        $container_button.get(0).style.display = 'none';
+        $container_button.on('click', function (event) {
+            event.stopPropagation();
+            var $body = $container.find('.smchuncai-body');
+            $body.get(0).style.display = 'block';
+            $container_button.get(0).style.display = 'none';
+        });
+    };
+
+    initAllItem = function ($container) {
+        allImageHide($container);
+        initMenu($container);
+        hideButton($container);
+    };
     // ---------------------------- 结束 DOM 方法 ---------------------------------
 
     // ---------------------------- 事件控制 --------------------------------------
@@ -64,8 +83,7 @@ girl.shell = (function () {
     initModule = function ($container) {
         stateMap.$container = $container;
         setJqueryMap();
-        allImageHide(jQueryMap.$container);
-        initMenu(jQueryMap.$container);
+        initAllItem(jQueryMap.$container);
         girl.move.initModule(jQueryMap.$container);
         girl.change.initModule(jQueryMap.$container);
         girl.word.initModule(jQueryMap.$container);
