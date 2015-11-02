@@ -68,6 +68,7 @@
     padding: 5px;
     width: 80%;
     min-height: 50px;
+    font-weight: 500;
     border: 0;
     border-radius: 5px;
     background: #1678C2;
@@ -123,7 +124,7 @@
 .smchuncai-speak-contain-show-button {
     position: relative;
     margin: 0 auto;
-    padding: 0 auto;
+    padding: 0 auto !important;
     float: right;
     clear: right;
     text-align: center;
@@ -139,4 +140,11 @@
 .smchuncai-speak-contain-show-button p:hover {
     background: #ffffff;
     color: #1678C2;
+}
+
+.smchuncai-speak-contain-said p {
+    position: relative;
+    padding: 0 5px;
+    font-size: 12px;
+    color: white;
 }

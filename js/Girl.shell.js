@@ -45,7 +45,12 @@ girl.shell = (function () {
     };
 
     initMenu = function ($container) {
-        
+        var $container_menu = $container.find('.smchuncai-speak-contain'),
+            $container_menu_said = $container_menu.find('.smchuncai-speak-contain-said');
+        console.log('$container_menu', $container_menu);
+        $container_menu.find('.smchuncai-speak-contain-menu').get(0).style.display = 'none';
+        $container_menu_said.get(0).style.display = 'block';
+        $container_menu_said.html('<p>小埋参上</p>')
     };
     // ---------------------------- 结束 DOM 方法 ---------------------------------
 
@@ -60,6 +65,7 @@ girl.shell = (function () {
         stateMap.$container = $container;
         setJqueryMap();
         allImageHide(jQueryMap.$container);
+        initMenu(jQueryMap.$container);
         girl.move.initModule(jQueryMap.$container);
         girl.change.initModule(jQueryMap.$container);
         girl.word.initModule(jQueryMap.$container);
