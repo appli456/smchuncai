@@ -57,6 +57,8 @@ smchuncai.move = (function () {
             };
 
             smchuncai.change.pauseTime();
+            smchuncai.word.pauseWord();
+            console.log(window.var.timeChange);
             $container.on('mousemove', function(event){
                 //console.log('offset:',  offset.x, offset.y);
                 //console.log('Distance:', distanceFromClickAndOffset.x, distanceFromClickAndOffset.y);

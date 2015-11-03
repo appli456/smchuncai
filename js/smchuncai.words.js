@@ -14,6 +14,7 @@ smchuncai.word = (function() {
         hideMenu,
         hideDoll,
         getResumeToTrue,
+        pauseWord,
         initModule;
 
     // ---------------------- 结束变量定义与声明 -----------------------------
@@ -39,10 +40,10 @@ smchuncai.word = (function() {
             } else {
                 showWord($menu_element);
                 smchuncai.change.pauseTime();
-                setTimeout(function () {
+                window.var.timeShowWord = setTimeout(function () {
                     getResumeToTrue();
                     smchuncai.change.resumeTime(jQuery_map.$container);
-                }, 10000);
+                }, 1000);
             }
         });
         console.log('button', menu_show_button);
@@ -53,20 +54,22 @@ smchuncai.word = (function() {
             event.cancelBubble = true;
 
             showMenu($menu_element);
-            smchuncai.change.setImg($container, 0);
             smchuncai.change.pauseTime();
+            smchuncai.change.setImg($container, 0);
 
-            setTimeout(function () {
+
+            window.var.timeShowButton = setTimeout(function () {
                 hideMenu($menu_element);
                 smchuncai.change.resumeTime($container);
                 getResumeToTrue()
-            }, 10000);
+            }, 1000);
         });
     };
 
     getResumeToTrue = function () {
         window.var.resume = true;
     };
+
 
 
     // ---------------------- 结束 DOM 方法 ---------------------------
@@ -102,6 +105,12 @@ smchuncai.word = (function() {
 
     // --------------------- 公共方法 ----------------------------
 
+    pauseWord = function () {
+        console.log('pause word');
+        clearTimeout(window.var.timeShowButton);
+        clearTimeout(window.var.timeShowWord);
+    };
+
     initModule = function ($container) {
         jQuery_map.$container = $container;
         jQuery_map.$menu_element = $container.find('.smchuncai-speak-contain');
@@ -110,6 +119,7 @@ smchuncai.word = (function() {
 
     // -------------------- 结束公共方法 --------------------------
     return {
-        initModule: initModule
+        initModule: initModule,
+        pauseWord : pauseWord
     };
 }());

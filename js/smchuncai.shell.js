@@ -50,7 +50,9 @@ smchuncai.shell = (function () {
     window.var = {
         timeChange : null,
         change : true,
-        resume : true
+        resume : true,
+        timeShowWord : null,
+        timeShowButton : null
     };
     // ---------------------------- 结束变量声明与定义 -----------------------------
 

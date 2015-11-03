@@ -58,7 +58,7 @@ smchuncai.change = (function () {
             });
 
             resumeTime($container);
-        }, 20000);
+        }, 2000);
     };
 
     // Function setImg
@@ -67,7 +67,6 @@ smchuncai.change = (function () {
     setImg = function ($container, num) {
         var $container_img = $container.find('img');
         $container_img.each(function (index, element) {
-            console.log(index);
             if (index === num) {
                 element.style.display = 'block';
             } else {
