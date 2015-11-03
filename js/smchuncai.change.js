@@ -58,7 +58,7 @@ smchuncai.change = (function () {
             });
 
             resumeTime($container);
-        }, 2000);
+        }, 20000);
     };
 
     // Function setImg

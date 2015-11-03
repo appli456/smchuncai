@@ -13,7 +13,6 @@ smchuncai.word = (function() {
         showMenu,
         hideMenu,
         hideDoll,
-        getResumeToTrue,
         pauseWord,
         initModule;
 
@@ -30,20 +29,18 @@ smchuncai.word = (function() {
             event.cancelBubble = true;
             if (event.target === menu_item[0]) {
                 window.location = 'http://www.cnblogs.com/lfk-dsk/';
-                getResumeToTrue();
             } else if (event.target === menu_item[1]) {
                 window.location = 'https://github.com/lfkdsk/';
-                getResumeToTrue();
             } else if (event.target === menu_item[menu_item.length - 1]) {
                 hideDoll(jQuery_map.$container);
-                getResumeToTrue();
             } else {
                 showWord($menu_element);
                 smchuncai.change.pauseTime();
+
+
                 window.var.timeShowWord = setTimeout(function () {
-                    getResumeToTrue();
                     smchuncai.change.resumeTime(jQuery_map.$container);
-                }, 1000);
+                }, 20000);
             }
         });
         console.log('button', menu_show_button);
@@ -61,14 +58,10 @@ smchuncai.word = (function() {
             window.var.timeShowButton = setTimeout(function () {
                 hideMenu($menu_element);
                 smchuncai.change.resumeTime($container);
-                getResumeToTrue()
-            }, 1000);
+            }, 20000);
         });
     };
 
-    getResumeToTrue = function () {
-        window.var.resume = true;
-    };
 
 
 
@@ -84,6 +77,7 @@ smchuncai.word = (function() {
     };
 
     hideMenu = function($menu_element) {
+        smchuncai.change.pauseTime();
         $menu_element.find('.smchuncai-speak-contain-menu').get(0).style.display = 'none';
         $menu_element.find('.smchuncai-speak-contain-said').get(0).style.display = 'block';
     };

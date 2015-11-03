@@ -7,7 +7,9 @@ var smchuncai = (function() {
         smchuncai.shell.initModule();
     };
 
-    return {initModule : initModule};
+    return {
+        initModule : initModule
+    };
 }());
 
 

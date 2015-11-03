@@ -19,6 +19,7 @@
     top: 100px;
     left: 200px;
     display: block;
+    min-width: 303px;
 }
 
 #smchuncai .smchuncai-call-doll {
@@ -85,10 +86,12 @@
 }
 
 #smchuncai .smchuncai-img-contain img {
+    position: relative;
     float: left;
 }
 
 #smchuncai .smchuncai-img-contain {
+    position: relative;
     float: left;
 }
 

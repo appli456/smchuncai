@@ -17,12 +17,12 @@ smchuncai.move = (function () {
     moveDoll = function($container){
 
         // 点击时鼠标坐标
-        var img = $container.find('img'),
+        var container = $container,
             clickDownPosition = {
                 x : null,
                 y : null
             },
-            imgSize = {
+            containerSize = {
                 x :  null,
                 y : null
             },
@@ -31,11 +31,9 @@ smchuncai.move = (function () {
                 y : null
             };
 
-        console.log(img);
-        imgSize.x = parseInt(img.css('width'));
-        imgSize.y = parseInt(img.css('height'));
+        containerSize.x = parseInt(container.css('width'));
+        containerSize.y = parseInt(container.css('height'));
 
-        console.log(imgSize);
         $container.on('mousedown',  function(event){
             drag = true;
             var $this = this,
@@ -62,11 +60,12 @@ smchuncai.move = (function () {
             $container.on('mousemove', function(event){
                 //console.log('offset:',  offset.x, offset.y);
                 //console.log('Distance:', distanceFromClickAndOffset.x, distanceFromClickAndOffset.y);
-                //console.log('ImgSize:', imgSize.x, imgSize.y);
+                //console.log('containerSize:', containerSize.x, containerSize.y);
                 //console.log('client:', event.clientX, event.clientY);
 
                 if(!drag) {
-                    if (change && resume && window.var.resume) {
+                    if (change && resume) {
+                        console.log('恢复');
                         smchuncai.change.resumeTime($container);
                         resume = false;
                     }
@@ -75,14 +74,14 @@ smchuncai.move = (function () {
 
                 var enterLeft = event.clientX - distanceFromClickAndOffset.x < 0,
                     enterTop = event.clientY - distanceFromClickAndOffset.y < 0,
-                    enterRight = event.clientX > screen.availWidth - imgSize.x + distanceFromClickAndOffset.x,
-                    enterBottom = event.clientY > screen.availHeight - imgSize.y + distanceFromClickAndOffset.y;
+                    enterRight = event.clientX > screen.availWidth - containerSize.x + distanceFromClickAndOffset.x,
+                    enterBottom = event.clientY > screen.availHeight - containerSize.y + distanceFromClickAndOffset.y;
 
                 if (enterLeft || enterTop || enterRight || enterBottom) {
                     if (enterLeft) {
                         $this.style.left = 0 + 'px';
                     } else if (enterRight) {
-                        $this.style.left = screen.availWidth - imgSize.x + "px";
+                        $this.style.left = screen.availWidth - containerSize.x + "px";
                     } else {
                         $this.style.left = offset.x + event.clientX - clickDownPosition.x + "px";
                     }
@@ -90,7 +89,7 @@ smchuncai.move = (function () {
                     if (enterTop) {
                         $this.style.top = 0 + 'px';
                     } else if (enterBottom) {
-                        $this.style.top = screen.availHeight - imgSize.y + "px";
+                        $this.style.top = screen.availHeight - containerSize.y + "px";
                     } else {
                         $this.style.top = offset.y + event.clientY - clickDownPosition.y + "px";
                     }

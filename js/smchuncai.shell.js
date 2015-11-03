@@ -96,6 +96,7 @@ smchuncai.shell = (function () {
         $container_button.on('click', function (event) {
             event.stopPropagation();
             var $body = $container.find('.smchuncai-body');
+            smchuncai.change.resumeTime($container);
             $body.get(0).style.display = 'block';
             $container_button.get(0).style.display = 'none';
         });
