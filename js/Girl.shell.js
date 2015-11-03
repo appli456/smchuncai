@@ -1,11 +1,43 @@
 /**
  * Created by li_rz on 2015/8/23.
  */
-girl.shell = (function () {
+smchuncai.shell = (function () {
     'use strict';
     // ---------------------------- 变量声明及定义 ---------------------------------
     var stateMap = {
-            $container : undefined
+            $container : undefined,
+            main_html : '<div id="smchuncai" draggable="true">' +
+                            '<div class="smchuncai-body">' +
+                                '<div class="smchuncai-speak">' +
+                                    '<div class="smchuncai-speak-contain">' +
+                                        '<div class="smchuncai-speak-contain-menu">' +
+                                            '<ul>' +
+                                                '<li>博客首页</li>' +
+                                                '<li>源码下载</li>' +
+                                                '<li>小埋卖萌</li>' +
+                                                '<li>隐藏小埋</li>' +
+                                            '</ul>' +
+                                        '</div>' +
+                                        '<div class="smchuncai-speak-contain-said">' +
+                                        '</div>' +
+                                        '<div class="smchuncai-speak-contain-show-button">' +
+                                            '<p>菜单</p>' +
+                                        '</div>' +
+                                    '</div>' +
+                                    '<div class="smchuncai-speak-from">' +
+                                    '</div>' +
+                                '</div>' +
+                                '<div class="smchuncai-img-contain">' +
+                                    '<img src="img/002.png" alt="umaru" draggable="false"/>' +
+                                    '<img src="img/003.png" alt="umaru" draggable="false"/>' +
+                                    '<img src="img/004.png" alt="umaru" draggable="false"/>' +
+                                    '<img src="img/005.png" alt="umaru" draggable="false"/>' +
+                                '</div>' +
+                            '</div>' +
+                            '<div>' +
+                                '<button class="smchuncai-call-doll">召唤小埋</button>' +
+                            '</div>' +
+                        '</div>'
         },
         jQueryMap = {},
         setJqueryMap,
@@ -17,7 +49,8 @@ girl.shell = (function () {
 
     window.var = {
         timeChange : null,
-        change : true
+        change : true,
+        resume : true
     };
     // ---------------------------- 结束变量声明与定义 -----------------------------
 
@@ -80,13 +113,15 @@ girl.shell = (function () {
 
     // -------------------------- 公共方法 ----------------------------------------
 
-    initModule = function ($container) {
+    initModule = function () {
+        $('body').append(stateMap.main_html);
+        var $container = $('#smchuncai');
         stateMap.$container = $container;
         setJqueryMap();
         initAllItem(jQueryMap.$container);
-        girl.move.initModule(jQueryMap.$container);
-        girl.change.initModule(jQueryMap.$container);
-        girl.word.initModule(jQueryMap.$container);
+        smchuncai.move.initModule(jQueryMap.$container);
+        smchuncai.change.initModule(jQueryMap.$container);
+        smchuncai.word.initModule(jQueryMap.$container);
     };
 
     // -------------------------- 结束公共方法 ------------------------------------

@@ -1,7 +1,7 @@
 /**
  * Created by li_rz on 2015/9/6.
  */
-girl.move = (function () {
+smchuncai.move = (function () {
     'use strict';
     // ------------------------ 变量定义与声明 -----------------------------
 
@@ -56,7 +56,7 @@ girl.move = (function () {
                 y : clickDownPosition.y - offset.y
             };
 
-            girl.change.pauseTime();
+            smchuncai.change.pauseTime();
             $container.on('mousemove', function(event){
                 //console.log('offset:',  offset.x, offset.y);
                 //console.log('Distance:', distanceFromClickAndOffset.x, distanceFromClickAndOffset.y);
@@ -64,8 +64,8 @@ girl.move = (function () {
                 //console.log('client:', event.clientX, event.clientY);
 
                 if(!drag) {
-                    if (change && resume) {
-                        girl.change.resumeTime($container);
+                    if (change && resume && window.var.resume) {
+                        smchuncai.change.resumeTime($container);
                         resume = false;
                     }
                     return false;

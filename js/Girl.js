@@ -1,10 +1,10 @@
 /**
  * Created by li_rz on 2015/8/16.
  */
-var girl = (function() {
+var smchuncai = (function() {
     'use strict';
-    var initModule = function ($container) {
-        girl.shell.initModule($container);
+    var initModule = function () {
+        smchuncai.shell.initModule();
     };
 
     return {initModule : initModule};
