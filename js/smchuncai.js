@@ -22,4 +22,6 @@ var smchuncai = (function() {
     };
 }());
 
-
+ $(document).ready(function () {
+            smchuncai.initModule();
+        });
